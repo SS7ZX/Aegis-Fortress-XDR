@@ -1,14 +1,11 @@
 <div align="center">
-  <h1>AEGIS FORTRESS XDR</h1>
+  <h1>🛡️ AEGIS FORTRESS XDR</h1>
+  <p><strong>Open‑Source, Kernel‑Native Extended Detection & Response for Critical Infrastructure</strong></p>
   <p>
-    <strong>The World's First Open‑Source, Kernel‑Native Extended Detection and Response Platform for Critical Infrastructure</strong>
-  </p>
-  <p>
-    <a href="https://github.com/ss7zx/aegis-fortress-xdr/actions"><img src="https://img.shields.io/github/actions/workflow/status/ss7zx/aegis-fortress-xdr/ci.yml?branch=main&style=flat-square" alt="Build Status"></a>
-    <a href="https://github.com/ss7zx/aegis-fortress-xdr/releases"><img src="https://img.shields.io/github/v/release/ss7zx/aegis-fortress-xdr?style=flat-square" alt="Release"></a>
-    <a href="https://github.com/ss7zx/aegis-fortress-xdr/blob/main/LICENSE"><img src="https://img.shields.io/github/license/ss7zx/aegis-fortress-xdr?style=flat-square" alt="License"></a>
-    <a href="https://discord.gg/your-invite"><img src="https://img.shields.io/discord/1234567890?style=flat-square&logo=discord" alt="Discord"></a>
-    <a href="https://twitter.com/aegisfortress"><img src="https://img.shields.io/twitter/follow/aegisfortress?style=flat-square&logo=twitter" alt="Twitter"></a>
+    <a href="https://github.com/ss7zx/aegis-fortress-xdr/actions"><img src="https://img.shields.io/github/actions/workflow/status/ss7zx/aegis-fortress-xdr/ci.yml?branch=main&style=for-the-badge&logo=github" alt="CI"></a>
+    <a href="https://github.com/ss7zx/aegis-fortress-xdr/releases"><img src="https://img.shields.io/github/v/release/ss7zx/aegis-fortress-xdr?style=for-the-badge&logo=semver" alt="Release"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/github/license/ss7zx/aegis-fortress-xdr?style=for-the-badge" alt="License"></a>
+    <a href="https://discord.gg/your-invite"><img src="https://img.shields.io/discord/1234567890?style=for-the-badge&logo=discord&label=Discord" alt="Discord"></a>
   </p>
   <p>
     <a href="#-features">Features</a> •
@@ -21,46 +18,44 @@
   <br>
   <img src="docs/images/dashboard-preview.png" alt="AEGIS FORTRESS XDR Dashboard" width="800">
   <br>
-  <em>Real‑time threat detection and automated response for critical infrastructure</em>
+  <em>Real‑time threat detection and automated response for power grids, water treatment, and healthcare</em>
 </div>
 
 ---
 
 ## 🌟 Introduction
 
-**AEGIS FORTRESS XDR** is an advanced, open‑source Extended Detection and Response platform purpose‑built to protect the world’s most critical infrastructure—power grids, water treatment plants, healthcare systems, and financial networks. It combines **kernel‑level visibility** (eBPF), **AI‑driven analytics**, **automated response orchestration**, and **deception technologies** into a unified, scalable, and transparent defense system.
+**AEGIS FORTRESS XDR** is the world’s first open‑source Extended Detection and Response platform purpose‑built for **critical infrastructure**. Born from the **AEGIS FORTRESS EDR v5.1** kernel‑native sensor, it unifies endpoint, network, cloud, and identity telemetry into a single, AI‑driven defense system. Our mission: democratize advanced cybersecurity so that every utility, hospital, and transportation system—regardless of budget—can defend against nation‑state adversaries and sophisticated cybercriminals.
 
-Born from the **AEGIS FORTRESS EDR v5.1** kernel sensor, this project expands to cover networks, cloud workloads, and identity systems, providing defenders with a single pane of glass and the ability to stop sophisticated adversaries before they cause harm.
-
-**Why AEGIS FORTRESS XDR?**
-- **Kernel‑Native**: eBPF sensors provide unparalleled visibility with minimal overhead.
-- **Critical Infrastructure Focus**: Deep ICS protocol support (Modbus, DNP3, IEC 104) and OT‑specific detection.
-- **AI‑Powered**: Machine learning models detect unknown threats and reduce false positives.
-- **Automated Response**: SOAR playbooks contain threats in seconds—isolate endpoints, block IPs, rotate credentials.
-- **Deception**: Honeypots and honeytokens lure attackers and gather intelligence.
-- **Open & Auditable**: No black boxes; fully transparent code you can trust.
+### Why AEGIS FORTRESS XDR?
+- **Kernel‑Native Visibility** – eBPF sensors monitor file, process, network, and registry events with minimal overhead.
+- **ICS/OT Focus** – Deep support for Modbus, DNP3, IEC 104, and other industrial protocols.
+- **AI‑Powered Detection** – Unsupervised and supervised machine learning models catch zero‑day attacks and reduce false positives.
+- **Automated Response** – SOAR playbooks isolate endpoints, block IPs, rotate credentials, and deploy honeypots in seconds.
+- **Deception Technology** – Honeypots and honeytokens lure attackers and gather threat intelligence.
+- **Open & Auditable** – 100% transparent code; no black boxes.
 
 ---
 
 ## ✨ Features
 
-| Area | Capabilities |
-|------|--------------|
-| **Endpoint** | eBPF sensors for file, process, network, and registry events on Linux & Windows (eBPF for Windows). Real‑time blocking of malicious activity. |
-| **Network** | Zeek metadata, Suricata IDS, custom ICS protocol dissectors (Rust) for Modbus, DNP3, IEC 104. Flow analytics for beaconing detection. |
-| **Cloud** | Ingests AWS CloudTrail, Azure Monitor, GCP Audit Logs. Detects misconfigurations and anomalous API calls. |
-| **Detection Engine** | Unsupervised (autoencoders) and supervised (XGBoost) ML models. Time‑series forecasting for ransomware. Explainable AI (SHAP). |
-| **SOAR** | TheHive for case management, Cortex for enrichment, Shuffle for playbooks. Automated actions: process kill, network isolation, honeypot deployment. |
-| **Deception** | Conpot (ICS honeypots), Cowrie (SSH), custom decoys. Adaptive deployment upon scan detection. |
-| **Threat Intel** | MISP integration – consume and share IOCs (STIX/TAXII). |
-| **Dashboard** | Real‑time React UI with graphs, process trees, incident timelines, and reporting (PDF/CSV). |
-| **Self‑Healing** | Golden images, Infrastructure as Code (Terraform) to rebuild compromised assets automatically. |
+| Area              | Capabilities                                                                                                                                                                                                 |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Endpoint**      | eBPF sensors for Linux & Windows (eBPF for Windows). Real‑time blocking of unauthorized file access, process execution, and network connections.                                                            |
+| **Network**       | Zeek metadata, Suricata IDS, custom Rust dissectors for Modbus, DNP3, IEC 104. Flow analytics for beaconing detection.                                                                                      |
+| **Cloud**         | Ingests AWS CloudTrail, Azure Monitor, GCP Audit Logs. Detects misconfigurations (public S3, over‑permissive IAM) and anomalous API calls.                                                                  |
+| **Detection**     | ML models: autoencoders (anomaly detection), XGBoost (classification), LSTM (time‑series forecasting). Explainable AI with SHAP. Continuous retraining pipeline.                                            |
+| **SOAR**          | TheHive for case management, Cortex for enrichment, Shuffle for playbooks. Automated actions: process kill, network isolation, credential rotation, firewall updates, honeypot deployment.                  |
+| **Deception**     | Conpot (ICS honeypots), Cowrie (SSH), custom decoys. Adaptive deployment upon scan detection. Honeytokens (fake files, DB records, API keys) trigger alerts when accessed.                                  |
+| **Threat Intel**  | MISP integration – consume and share IOCs via STIX/TAXII. Enrich alerts with external feeds (VirusTotal, Shodan, OTX).                                                                                      |
+| **Dashboard**     | Real‑time React UI with live alerts, process trees, network graphs, incident timelines. Reporting (PDF/CSV) for compliance. RBAC with LDAP/OAuth.                                                           |
+| **Self‑Healing**  | Golden images (Packer) + Infrastructure as Code (Terraform) to automatically rebuild compromised assets. Kubernetes integration for container recovery.                                                      |
 
 ---
 
 ## 🏗️ Architecture
 
-A high‑level view of the platform components:
+The platform is designed as a set of loosely coupled microservices, enabling scalability and resilience.
 ┌─────────────────────────────────────────────────────────────────┐
 │ AEGIS FORTRESS XDR │
 ├───────────────┬────────────────┬───────────────┬───────────────┤

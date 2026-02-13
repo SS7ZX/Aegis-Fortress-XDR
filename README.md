@@ -56,22 +56,44 @@
 ## 🏗️ Architecture
 
 The platform is designed as a set of loosely coupled microservices, enabling scalability and resilience.
-┌─────────────────────────────────────────────────────────────────┐
-│ AEGIS FORTRESS XDR │
-├───────────────┬────────────────┬───────────────┬───────────────┤
-│ Endpoint │ Network │ Cloud │ Identity │
-│ Agents │ Sensors │ Logs │ Logs │
-├───────────────┴────────────────┴───────────────┴───────────────┤
-│ Data Ingestion & Normalization │
-│ (Kafka + ECS) │
-├───────────────┬────────────────┬───────────────┬───────────────┤
-│ AI/ML │ Deception │ SOAR │ Threat Intel │
-│ Detection │ Fabric │ (TheHive, │ (MISP) │
-│ Engine │ │ Shuffle) │ │
-├───────────────┴────────────────┴───────────────┴───────────────┤
-│ Unified Dashboard & API │
-│ (React + Go) │
-└─────────────────────────────────────────────────────────────────┘
+```  bash
+graph TB
+    subgraph "Protected Environment"
+        E[Endpoints - Windows/Linux/OT]
+        N[Network Sensors]
+        C[Cloud Workloads]
+    end
+    
+    subgraph "AEGIS FORTRESS XDR Core"
+        D[Data Ingestion & Normalization]
+        A[AI/ML Detection Engine]
+        R[SOAR & Automated Response]
+        T[Threat Intelligence]
+        P[Deception Fabric]
+    end
+    
+    subgraph "Management Plane"
+        DB[(Time‑Series + Graph DB)]
+        UI[Unified Dashboard]
+        API[REST API]
+    end
+    
+    E -->|eBPF Agent| D
+    N -->|Zeek/Suricata| D
+    C -->|Cloud APIs| D
+    D --> A
+    D --> P
+    A --> R
+    R -->|Block/Isolate| E
+    R -->|Update Rules| N
+    R -->|Deploy Honeypots| P
+    T --> A
+    T --> R
+    D --> DB
+    A --> UI
+    R --> UI
+    UI --> API
+```
 
 For detailed component diagrams and data flows, see our [Architecture Documentation](docs/ARCHITECTURE.md).
 
